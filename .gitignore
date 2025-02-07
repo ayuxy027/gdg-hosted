@@ -74,4 +74,3 @@ coverage
 .vercel
 .next/cache
 .next/static
-public/static/development
