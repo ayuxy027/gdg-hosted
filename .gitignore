@@ -3,16 +3,29 @@ logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node modules
 node_modules
+
+# Build output
 dist
 dist-ssr
-*.local
+.next
+out
+.cache
+build
+coverage
 
-# Editor directories and files
+# Runtime files
+*.local
+.env
+.env.*
+*.pid
+*.pid.lock
+
+# IDE and Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +35,43 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.iml
+
+# Temporary files and backups
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.seed
+*.gz
+
+# macOS
+._*
+.TemporaryItems
+.Trashes
+.AppleDouble
+
+# Linux
+*~ 
+.nfs*
+
+# Dependency directories
+.eslintcache
+.stylelintcache
+.parcel-cache
+
+# Monorepo tools
+lerna-debug.log*
+.pnpm-store
+
+# Test output
+*.lcov
+coverage
+.nyc_output
+
+# Next.js and Vercel specific
+.vercel
+.next/cache
+.next/static
+public/static/development
