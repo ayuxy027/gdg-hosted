@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -7,13 +7,15 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const location = (useLocation()).pathname;
+  console.log(location);
 
   return (
     <nav className="bg-white shadow-[2px_8px_15px_rgba(255,255,255,0.7)] fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] z-50 rounded-3xl border border-black ">
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div className="flex justify-between h-16">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" >
           <img 
             src="\src\assets\logogdg.png" 
             alt="GDG Logo" 
@@ -26,31 +28,32 @@ const Navbar = () => {
         <div className="items-center hidden space-x-8 md:flex">
           <Link
             to="/"
-            className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full"
+            className={`px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full ${location == '/' && 'bg-black text-white rounded-full'}`}
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full"
+            className={`px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full ${location == '/about' && 'bg-black text-white rounded-full'}`}
           >
             About Us
           </Link>
           <Link
             to="/events"
-            className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full"
+            className={`px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full ${location == '/events' && 'bg-black text-white rounded-full'}`}
           >
             Events
           </Link>
           <Link
             to="/gallery"
-            className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full"
+            className={`px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full ${location == '/gallery' && 'bg-black text-white rounded-full'}`}
           >
             Gallery
           </Link>
           <Link
             to="/team"
-            className="px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full"
+            
+            className={`px-4 py-2 transition-all duration-300 rounded-full hover:bg-black hover:text-white hover:rounded-full ${location == '/team' && 'bg-black text-white rounded-full'}`}
           >
             Team
           </Link>
