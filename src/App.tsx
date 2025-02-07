@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -10,6 +11,7 @@ import Login from './pages/Login';
 function App() {
   return (
     <Router>
+      <Analytics />
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <Routes>
