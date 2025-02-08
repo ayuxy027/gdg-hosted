@@ -5,16 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-<<<<<<< HEAD
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf .vite && rm -rf package-lock.json"
-=======
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
->>>>>>> c0630e1ef475b50d5758944393ef19fca5d2fc3b
   },
   "dependencies": {
     "framer-motion": "^11.0.3",
