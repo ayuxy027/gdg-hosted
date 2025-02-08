@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import gdgLogo from '/src/assets/logogdg.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center space-x-2" >
           <img 
-            src="\src\assets\logogdg.png" 
+            src={gdgLogo} 
             alt="GDG Logo" 
             className="object-contain h-10 w-35"
           />
@@ -82,7 +83,7 @@ const Navbar = () => {
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <Link
           to="/"
-            className="block px-3 py-2 rounded-md hover:bg-black hover:text-white"
+            className = "block px-3 py-2 rounded-md hover:bg-black hover:text-white"
         >
           Home
         </Link>
