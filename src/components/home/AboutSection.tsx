@@ -56,6 +56,7 @@ export const AboutSection = () => (
           >
             <img src="/src/assets/team.jpg" alt="Team Collaboration" className="w-full h-[700px] object-cover" />
           </motion.div>
+          
       </motion.div>
     </div>
     
