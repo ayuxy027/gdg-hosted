@@ -1,17 +1,15 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useState, useRef, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Calendar, Users, Globe2, Code, BookOpen, Rocket } from "lucide-react"
 
-import type React from "react"
-import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence, type PanInfo } from "framer-motion"
-import { ArrowRight, Calendar, Users, Globe2 } from "lucide-react"
-
-// Define types
+// Types
 type Stat = {
   id: number
   label: string
   value: string
   icon: React.FC<React.SVGProps<SVGSVGElement>>
   position: number
+  description: string
 }
 
 type AnimatedCardProps = {
@@ -25,65 +23,37 @@ type DraggableStatsCardProps = {
   setStats: React.Dispatch<React.SetStateAction<Stat[]>>
 }
 
-// AnimatedCard component
+// Placeholder images (replace these with your actual image URLs)
+const PLACEHOLDER_IMAGES = {
+  hero: "/src/assets/homebg.jpg",
+  logo: "/src/assets/logo2.png",
+  team: "/src/assets/team.jpg",
+}
+
+// AnimatedCard component with hover effects
 const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay }}
     viewport={{ once: true }}
-    className="p-6 transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-xl"
+    className="p-6 transition-all duration-300 bg-white shadow-lg rounded-xl hover:shadow-xl hover:-translate-y-1"
   >
     {children}
   </motion.div>
 )
 
-// DraggableStatsCard component
+// Enhanced DraggableStatsCard with tooltips and animations
 const DraggableStatsCard: React.FC<DraggableStatsCardProps> = ({ stat, containerWidth, setStats }) => {
   const [isDragging, setIsDragging] = useState(false)
-  const cardWidth = containerWidth / 3 - 32 // Accounting for gap
+  const cardWidth = containerWidth / 3 - 32
 
   const getPositionX = (position: number): number => {
-    const gap = 32 // 2rem gap
+    const gap = 32
     return position * (cardWidth + gap)
   }
 
-  const findNearestPosition = (dragX: number): number | null => {
-    const positions = [0, 1, 2]
-    let nearestPosition: number | null = null
-    let minDistance = Number.POSITIVE_INFINITY
-
-    positions.forEach((position) => {
-      const posX = getPositionX(position)
-      const distance = Math.abs(dragX - posX)
-      if (distance < minDistance) {
-        minDistance = distance
-        nearestPosition = position
-      }
-    })
-
-    return minDistance < cardWidth / 2 ? nearestPosition : null
-  }
-  // @ts-expect-error 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    const dragX = info.offset.x + getPositionX(stat.position)
-    const nearestPosition = findNearestPosition(dragX)
-
-    if (nearestPosition !== null && nearestPosition !== stat.position) {
-      setStats((prevStats) => {
-        const newStats = [...prevStats]
-        const toCard = newStats.find((s) => s.position === nearestPosition)
-
-        if (toCard) {
-          const tempPosition = stat.position
-          newStats.find((s) => s.id === stat.id)!.position = toCard.position
-          toCard.position = tempPosition
-        }
-
-        return newStats
-      })
-    }
-
+  const handleDragEnd = () => {
     setIsDragging(false)
   }
 
@@ -107,50 +77,62 @@ const DraggableStatsCard: React.FC<DraggableStatsCardProps> = ({ stat, container
         scale: isDragging ? 1.05 : 1,
         zIndex: isDragging ? 2 : 1,
       }}
-      className="absolute p-6 transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-xl cursor-grab active:cursor-grabbing"
+      className="absolute p-6 transition-all duration-300 bg-white shadow-lg rounded-xl hover:shadow-xl cursor-grab active:cursor-grabbing group"
       style={{
         width: cardWidth,
         left: 0,
       }}
     >
-      <motion.div
-        className="flex flex-col items-center gap-4"
-        animate={
-          isDragging
-            ? {
-                rotate: [-1, 1],
-                transition: {
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                  duration: 0.2,
-                },
-              }
-            : {}
-        }
-      >
+      <motion.div className="flex flex-col items-center gap-4">
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center justify-center w-12 h-12 text-white bg-blue-600 rounded-full"
+          className="flex items-center justify-center w-12 h-12 text-white transition-colors bg-blue-600 rounded-full group-hover:bg-blue-700"
         >
           <Icon className="w-6 h-6" />
         </motion.div>
 
-        <div>
-          <motion.h3 className="mb-1 text-3xl font-bold text-blue-600">{stat.value}</motion.h3>
+        <div className="text-center">
+          <motion.h3 className="mb-1 text-3xl font-bold text-blue-600 group-hover:text-blue-700">
+            {stat.value}
+          </motion.h3>
           <motion.p className="text-sm text-gray-600">{stat.label}</motion.p>
+          <motion.p className="mt-2 text-xs text-gray-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+            {stat.description}
+          </motion.p>
         </div>
       </motion.div>
     </motion.div>
   )
 }
 
-// Main Home component
+// Main Home component with improved sections
 const Home: React.FC = () => {
   const [stats, setStats] = useState<Stat[]>([
-    { id: 1, label: "Active Users", value: "10,000+", icon: Users, position: 0 },
-    { id: 2, label: "Events Organized", value: "500+", icon: Calendar, position: 1 },
-    { id: 3, label: "Global Reach", value: "100+ Countries", icon: Globe2, position: 2 },
+    {
+      id: 1,
+      label: "Active Users",
+      value: "10,000+",
+      icon: Users,
+      position: 0,
+      description: "Engaged developers in our community"
+    },
+    {
+      id: 2,
+      label: "Events Organized",
+      value: "500+",
+      icon: Calendar,
+      position: 1,
+      description: "Technical workshops and meetups"
+    },
+    {
+      id: 3,
+      label: "Global Reach",
+      value: "100+ Countries",
+      icon: Globe2,
+      position: 2,
+      description: "Worldwide developer network"
+    },
   ])
 
   const containerRef = useRef<HTMLDivElement>(null)
@@ -168,25 +150,43 @@ const Home: React.FC = () => {
     return () => window.removeEventListener("resize", updateWidth)
   }, [])
 
+  const features = [
+    {
+      icon: Code,
+      title: "Technical Workshops",
+      description: "Hands-on learning with cutting-edge technologies"
+    },
+    {
+      icon: BookOpen,
+      title: "Learning Resources",
+      description: "Access to exclusive developer content and tutorials"
+    },
+    {
+      icon: Rocket,
+      title: "Career Growth",
+      description: "Networking and professional development opportunities"
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center">
+      {/* Hero Section with Gradient Overlay */}
+      <section className="relative h-[600px] flex items-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0 z-0"
         >
-          <img src="/src/assets/homebg.JPG" alt="Developer Conference" className="object-cover w-full h-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
+          <img src={PLACEHOLDER_IMAGES.hero} alt="Developer Conference" className="object-cover w-full h-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40"></div>
         </motion.div>
         <div className="relative z-10 px-8 mx-auto text-white max-w-7xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6 text-5xl font-bold"
+            className="mb-6 text-6xl font-bold tracking-tight"
           >
             Google Developer Groups
           </motion.h1>
@@ -203,22 +203,29 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex gap-4"
           >
             <a
               href="/events"
-              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white transition-colors duration-300 bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white transition-all duration-300 bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1"
             >
               Upcoming Events
               <ArrowRight className="w-5 h-5" />
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-blue-600 transition-all duration-300 bg-white rounded-lg shadow-lg hover:bg-gray-50 hover:shadow-xl hover:-translate-y-1"
+            >
+              Learn More
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Features Section with Draggable Stats */}
+      {/* Stats Section */}
       <section className="py-24 bg-white">
         <div className="px-8 mx-auto max-w-7xl">
-          <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Our Impact</h2>
+          <h2 className="mb-12 text-4xl font-bold text-center text-gray-900">Our Impact</h2>
           <div ref={containerRef} className="relative h-64 mb-16">
             <AnimatePresence>
               {containerWidth > 0 &&
@@ -228,35 +235,19 @@ const Home: React.FC = () => {
             </AnimatePresence>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
-            <AnimatedCard delay={0.1}>
-              <Calendar className="w-16 h-16 mx-auto mb-6 text-blue-600" />
-              <h3 className="mb-4 text-2xl font-semibold text-gray-900">Regular Events</h3>
-              <p className="leading-relaxed text-gray-600">
-                Workshops, hackathons, and tech talks to keep you updated with the latest technologies.
-              </p>
-            </AnimatedCard>
-
-            <AnimatedCard delay={0.2}>
-              <Users className="w-16 h-16 mx-auto mb-6 text-blue-600" />
-              <h3 className="mb-4 text-2xl font-semibold text-gray-900">Community</h3>
-              <p className="leading-relaxed text-gray-600">
-                Join a diverse community of developers, designers, and tech enthusiasts.
-              </p>
-            </AnimatedCard>
-
-            <AnimatedCard delay={0.3}>
-              <Globe2 className="w-16 h-16 mx-auto mb-6 text-blue-600" />
-              <h3 className="mb-4 text-2xl font-semibold text-gray-900">Global Network</h3>
-              <p className="leading-relaxed text-gray-600">
-                Connect with developers from around the world and expand your network.
-              </p>
-            </AnimatedCard>
+            {features.map((feature, index) => (
+              <AnimatedCard key={feature.title} delay={0.1 * (index + 1)}>
+                <feature.icon className="w-16 h-16 mx-auto mb-6 text-blue-600" />
+                <h3 className="mb-4 text-2xl font-semibold text-center text-gray-900">{feature.title}</h3>
+                <p className="leading-relaxed text-center text-gray-600">{feature.description}</p>
+              </AnimatedCard>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-24 bg-blue-600">
+      {/* About Section with Gradient */}
+      <section id="about" className="py-24 bg-gradient-to-br from-blue-600 to-blue-800">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -272,7 +263,7 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Story Section */}
+      {/* Story Section with Card Layout */}
       <section className="py-24 bg-white">
         <div className="px-8 mx-auto max-w-7xl">
           <motion.div
@@ -280,16 +271,18 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex items-center gap-12 mb-16"
+            className="p-8 mb-16 bg-gray-50 rounded-2xl"
           >
-            <img src="/src/assets/logo2.png" alt="Logo" className="w-64 h-auto" />
-            <div className="flex-1">
-              <h2 className="mb-6 text-4xl font-bold text-gray-900">Our Story</h2>
-              <p className="text-xl leading-relaxed text-gray-600">
-                Started in 2022, Google Developer Groups on Campus (GDGoC) are community-led developer groups that
-                create opportunities for developers to meet and learn about Google technologies and development
-                platforms.
-              </p>
+            <div className="flex items-center gap-12">
+              <img src={PLACEHOLDER_IMAGES.logo} alt="Logo" className="w-64 h-auto shadow-lg rounded-xl" />
+              <div className="flex-1">
+                <h2 className="mb-6 text-4xl font-bold text-gray-900">Our Story</h2>
+                <p className="text-xl leading-relaxed text-gray-600">
+                  Started in 2022, Google Developer Groups on Campus (GDGoC) are community-led developer groups that
+                  create opportunities for developers to meet and learn about Google technologies and development
+                  platforms.
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -300,13 +293,13 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="overflow-hidden shadow-2xl rounded-2xl"
           >
-            <img src="/src/assets/team.JPG" alt="Team Collaboration" className="w-full h-[600px] object-cover" />
+            <img src={PLACEHOLDER_IMAGES.team} alt="Team Collaboration" className="w-full h-[600px] object-cover" />
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-blue-600">
+      {/* CTA Section with Enhanced Design */}
+      <section className="py-24 bg-gradient-to-br from-blue-600 to-blue-800">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -318,12 +311,15 @@ const Home: React.FC = () => {
           <p className="mb-8 text-xl text-white">
             Get involved in our upcoming events and connect with fellow developers.
           </p>
-          <a
-            href="https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-and-management-pune-india/"
-            className="inline-block px-8 py-4 text-lg font-medium text-blue-600 transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-50"
-          >
-            Get Started
-          </a>
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-and-management-pune-india/"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-blue-600 transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              Join Now
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </motion.div>
       </section>
     </div>
