@@ -11,10 +11,18 @@
     "clean": "rm -rf dist && rm -rf node_modules && rm -rf .vite && rm -rf package-lock.json"
   },
   "dependencies": {
+    "@eslint/js": "^9.20.0",
+    "@vercel/analytics": "^1.4.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "framer-motion": "^11.0.3",
+    "globals": "^15.14.0",
     "lucide-react": "^0.323.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.5",
+    "react-swipeable": "^7.0.2",
+    "typescript-eslint": "^8.23.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.16",
