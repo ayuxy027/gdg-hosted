@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logogdg from '../assets/webimg/logogdg.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,7 +72,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <Link to="/" className="flex items-center space-x-2">
                 <img
-                  src="/src/assets/webimg/logogdg.png"
+                  src={logogdg}
                   alt="GDG Logo"
                   className="w-auto h-10"
                   loading="eager"
