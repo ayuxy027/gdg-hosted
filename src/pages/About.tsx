@@ -1,4 +1,5 @@
 import { Target, Heart, Lightbulb } from 'lucide-react';
+import team from '../assets/webimg/team.jpg';
 
 const About = () => {
   return (
@@ -43,7 +44,7 @@ const About = () => {
           </div>
           <div className="aspect-w-16 aspect-h-9">
             <img
-              src="/src/assets/webimg/team.JPG"
+              src={team}
               alt="Team Collaboration"
               className="rounded-lg shadow-lg w-full h-[550px] object-cover"
             />

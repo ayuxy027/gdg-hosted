@@ -1,4 +1,6 @@
 import { motion } from "framer-motion"
+import team from "../../assets/webimg/team.jpg"
+import logo from "../../assets/webimg/logo2.png"
 
 export const AboutSection = () => (
   <section>
@@ -30,7 +32,7 @@ export const AboutSection = () => (
         <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-12">
           <div className="w-full lg:w-auto">
             <img 
-              src="/src/assets/webimg/logo2.png" 
+              src={logo} 
               alt="Logo" 
               className="w-full max-w-[256px] h-auto shadow-lg rounded-xl mx-auto"
             />
@@ -54,7 +56,7 @@ export const AboutSection = () => (
             viewport={{ once: true }}
             className="overflow-hidden shadow-2xl rounded-2xl"
           >
-            <img src="/src/assets/webimg/team.jpg" alt="Team Collaboration" className="w-full h-[700px] object-cover" />
+            <img src={team} alt="Team Collaboration" className="w-full h-[700px] object-cover" />
           </motion.div>
           
       </motion.div>

@@ -1,6 +1,15 @@
+import React from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 
+// Method 1: Import images directly
+// Uncomment these lines and adjust the paths to match your project structure
+import event1Image from '../assets/webimg/event1.avif';
+ import event2Image from '../assets/webimg/event2.avif';
+ import upcomingImage from '../assets/webimg/upcoming.JPG';
+
 const Events = () => {
+  // Method 2: Use public folder paths
+  // If your images are in the public folder, use these paths
   const events = [
     {
       id: 1,
@@ -8,7 +17,9 @@ const Events = () => {
       date: "15th October, 2024",
       time: "11:30am to 1:30pm",
       location: "GHRCEM A-Building E322",
-      image: "\\src\\assets\\webimg\\event1.avif",
+      // Choose either Method 1: event1Image
+      // or Method 2: "/images/event1.avif"
+      image: event1Image,
       description: "Dive deep into the latest trends and updates in GenAI with an amazing surprise speaker! This talk is all you need to get a clear perspective on GenAI"
     },
     {
@@ -17,10 +28,11 @@ const Events = () => {
       date: "16th October, 2024",
       time: "11:30am to 1:30pm",
       location: "GHRCEM A-Building E316",
-      image: "\\src\\assets\\webimg\\event2.avif",
+      // Choose either Method 1: event2Image
+      // or Method 2: "/images/event2.avif"
+      image: event2Image,
       description: "Get introduced to terms like DPG and DPI, and learn how to contribute to open source. This is your chance to give back to the community and win exciting rewards!"
     },
-   
   ];
 
   return (
@@ -40,7 +52,11 @@ const Events = () => {
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="object-cover w-full h-41"
+                  className="object-cover w-full h-48"
+                  onError={(e) => {
+                    e.target.src = "/api/placeholder/800/400";
+                    e.target.alt = "Event placeholder image";
+                  }}
                 />
                 <div className="p-6">
                   <h3 className="mb-2 text-xl font-semibold">{event.title}</h3>
@@ -59,8 +75,8 @@ const Events = () => {
                       {event.location}
                     </div>
                   </div>
-                  <button className="w-full py-2 mt-6 text-white bg-blue-600 rounded-md hover:bg-blue-900">
-                  registration closed
+                  <button className="w-full py-2 mt-6 text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-700">
+                    Registration closed
                   </button>
                 </div>
               </div>
@@ -68,17 +84,33 @@ const Events = () => {
           </div>
         </div>
       </section>
+
       <section className="py-20 bg-blue-600">
         <div className="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold">Upcoming Events</h1>
           <p className="text-xl">Join Us for Exciting Tech Events, Workshops, and Meetups!</p>
         </div>
       </section>
-      <div className="no-events" style={{ textAlign: 'center', padding: '40px', backgroundColor: '#ffffff', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
-          <p style={{ fontSize: '2.5rem', color: '#333', marginBottom: '20px' }}>Upcoming Events 🎉</p>
-          <img  src="\src\assets\upcoming.JPG" style={{ width: '400px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', marginBottom: '20px' }} />
-          <p style={{ fontSize: '1.2rem', color: '#555' }}>We’re planning something amazing just for you. Keep checking back!</p>
+
+      <section className="py-20">
+        <div className="max-w-2xl p-10 mx-auto text-center bg-white rounded-lg shadow-lg">
+          <h2 className="mb-6 text-4xl font-bold text-gray-800">Upcoming Events 🎉</h2>
+          <img
+            // Choose either Method 1: upcomingImage
+            // or Method 2: "/images/upcoming.JPG"
+            src= {upcomingImage}          
+            alt="Upcoming events"
+            className="w-full max-w-md mx-auto mb-6 rounded-lg shadow-md"
+            onError={(e) => {
+              e.target.src = "/api/placeholder/400/300";
+              e.target.alt = "Upcoming events placeholder";
+            }}
+          />
+          <p className="text-xl text-gray-600">
+            We're planning something amazing just for you. Keep checking back!
+          </p>
         </div>
+      </section>
     </div>
   );
 };
