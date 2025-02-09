@@ -43,7 +43,7 @@ const About = () => {
           </div>
           <div className="aspect-w-16 aspect-h-9">
             <img
-              src="\src\assets\team.JPG"
+              src="/src/assets/webimg/team.JPG"
               alt="Team Collaboration"
               className="rounded-lg shadow-lg w-full h-[550px] object-cover"
             />

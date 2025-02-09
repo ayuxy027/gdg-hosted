@@ -8,7 +8,7 @@ const Events = () => {
       date: "15th October, 2024",
       time: "11:30am to 1:30pm",
       location: "GHRCEM A-Building E322",
-      image: "\\src\\assets\\event1.avif",
+      image: "\\src\\assets\\webimg\\event1.avif",
       description: "Dive deep into the latest trends and updates in GenAI with an amazing surprise speaker! This talk is all you need to get a clear perspective on GenAI"
     },
     {
@@ -17,7 +17,7 @@ const Events = () => {
       date: "16th October, 2024",
       time: "11:30am to 1:30pm",
       location: "GHRCEM A-Building E316",
-      image: "\\src\\assets\\event2.avif",
+      image: "\\src\\assets\\webimg\\event2.avif",
       description: "Get introduced to terms like DPG and DPI, and learn how to contribute to open source. This is your chance to give back to the community and win exciting rewards!"
     },
    
