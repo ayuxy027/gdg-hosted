@@ -1,11 +1,9 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
 type MainLayoutProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export const MainLayout = ({ children }: MainLayoutProps) => (
-  <div className="min-h-screen bg-gray-50">
-    {children}
-  </div>
-)
+  <div className="min-h-screen bg-gray-50">{children}</div>
+);

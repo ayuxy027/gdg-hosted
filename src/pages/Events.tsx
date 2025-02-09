@@ -1,11 +1,11 @@
-import React from 'react';
-import { Calendar, MapPin, Clock } from 'lucide-react';
+import React from "react";
+import { Calendar, MapPin, Clock } from "lucide-react";
 
 // Method 1: Import images directly
 // Uncomment these lines and adjust the paths to match your project structure
-import event1Image from '../assets/webimg/event1.avif';
- import event2Image from '../assets/webimg/event2.avif';
- import upcomingImage from '../assets/webimg/upcoming.JPG';
+import event1Image from "../assets/webimg/event1.avif";
+import event2Image from "../assets/webimg/event2.avif";
+import upcomingImage from "../assets/webimg/upcoming.JPG";
 
 const Events = () => {
   // Method 2: Use public folder paths
@@ -20,7 +20,8 @@ const Events = () => {
       // Choose either Method 1: event1Image
       // or Method 2: "/images/event1.avif"
       image: event1Image,
-      description: "Dive deep into the latest trends and updates in GenAI with an amazing surprise speaker! This talk is all you need to get a clear perspective on GenAI"
+      description:
+        "Dive deep into the latest trends and updates in GenAI with an amazing surprise speaker! This talk is all you need to get a clear perspective on GenAI",
     },
     {
       id: 2,
@@ -31,7 +32,8 @@ const Events = () => {
       // Choose either Method 1: event2Image
       // or Method 2: "/images/event2.avif"
       image: event2Image,
-      description: "Get introduced to terms like DPG and DPI, and learn how to contribute to open source. This is your chance to give back to the community and win exciting rewards!"
+      description:
+        "Get introduced to terms like DPG and DPI, and learn how to contribute to open source. This is your chance to give back to the community and win exciting rewards!",
     },
   ];
 
@@ -40,7 +42,9 @@ const Events = () => {
       <section className="py-20 bg-blue-600">
         <div className="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold">Past Events</h1>
-          <p className="text-xl">Exciting tech events, workshops, and meetups!</p>
+          <p className="text-xl">
+            Exciting tech events, workshops, and meetups!
+          </p>
         </div>
       </section>
 
@@ -48,7 +52,10 @@ const Events = () => {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (
-              <div key={event.id} className="overflow-hidden bg-white rounded-lg shadow-lg">
+              <div
+                key={event.id}
+                className="overflow-hidden bg-white rounded-lg shadow-lg"
+              >
                 <img
                   src={event.image}
                   alt={event.title}
@@ -88,17 +95,21 @@ const Events = () => {
       <section className="py-20 bg-blue-600">
         <div className="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold">Upcoming Events</h1>
-          <p className="text-xl">Join Us for Exciting Tech Events, Workshops, and Meetups!</p>
+          <p className="text-xl">
+            Join Us for Exciting Tech Events, Workshops, and Meetups!
+          </p>
         </div>
       </section>
 
       <section className="py-20">
         <div className="max-w-2xl p-10 mx-auto text-center bg-white rounded-lg shadow-lg">
-          <h2 className="mb-6 text-4xl font-bold text-gray-800">Upcoming Events 🎉</h2>
+          <h2 className="mb-6 text-4xl font-bold text-gray-800">
+            Upcoming Events 🎉
+          </h2>
           <img
             // Choose either Method 1: upcomingImage
             // or Method 2: "/images/upcoming.JPG"
-            src= {upcomingImage}          
+            src={upcomingImage}
             alt="Upcoming events"
             className="w-full max-w-md mx-auto mb-6 rounded-lg shadow-md"
             onError={(e) => {

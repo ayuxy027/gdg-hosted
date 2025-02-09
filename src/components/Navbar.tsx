@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import logogdg from '../assets/webimg/logogdg.png';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import logogdg from "../assets/webimg/logogdg.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +16,8 @@ const Navbar = () => {
 
     // Initial check
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close mobile menu when route changes
@@ -26,21 +26,27 @@ const Navbar = () => {
   }, [location]);
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { path: '/events', label: 'Events' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/team', label: 'Team' },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/events", label: "Events" },
+    { path: "/gallery", label: "Gallery" },
+    { path: "/team", label: "Team" },
   ];
 
   const NavLink = ({ to, children, external }) => {
     const isActive = location === to;
-    const baseClasses = "relative px-4 py-2 transition-all duration-300 rounded-full group";
-    const linkClasses = `${baseClasses} ${isActive ? 'bg-black text-white' : 'hover:text-black'}`;
+    const baseClasses =
+      "relative px-4 py-2 transition-all duration-300 rounded-full group";
+    const linkClasses = `${baseClasses} ${isActive ? "bg-black text-white" : "hover:text-black"}`;
 
     if (external) {
       return (
-        <a href={to} target="_blank" rel="noopener noreferrer" className={linkClasses}>
+        <a
+          href={to}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClasses}
+        >
           {children}
           <span className="absolute inset-0 w-full h-full transition-all duration-300 rounded-full opacity-0 bg-black/10 group-hover:opacity-100" />
         </a>
@@ -57,16 +63,19 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full px-4 pt-4">
-      <nav className={`
+      <nav
+        className={`
         mx-auto max-w-7xl 
         rounded-3xl
         transition-all duration-300
         border border-black/10
-        ${scrolled 
-          ? 'bg-white/90 backdrop-blur-sm shadow-lg' 
-          : 'bg-white shadow-md'
+        ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-sm shadow-lg"
+            : "bg-white shadow-md"
         }
-      `}>
+      `}
+      >
         <div className="px-6 mx-auto">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -113,7 +122,9 @@ const Navbar = () => {
           {/* Mobile Navigation */}
           <div
             className={`md:hidden transition-all duration-300 ease-in-out ${
-              isOpen ? 'max-h-96 opacity-100 visible pb-4' : 'max-h-0 opacity-0 invisible'
+              isOpen
+                ? "max-h-96 opacity-100 visible pb-4"
+                : "max-h-0 opacity-0 invisible"
             }`}
           >
             <div className="space-y-1 rounded-2xl">
@@ -123,8 +134,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`block px-4 py-2 text-base transition-all duration-200 rounded-full ${
                     location === item.path
-                      ? 'bg-black text-white'
-                      : 'hover:bg-gray-100'
+                      ? "bg-black text-white"
+                      : "hover:bg-gray-100"
                   }`}
                 >
                   {item.label}

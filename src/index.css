@@ -4,34 +4,61 @@
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", system-ui, sans-serif;
   }
 }
 
 /* Animation Keyframes */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Reusable Animation Classes */
@@ -57,14 +84,24 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-.stagger-animate > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-animate > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-animate > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-animate > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animate > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-animate > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-animate > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-animate > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 /* Hover Animations */
 .hover-lift {
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out;
 }
 
 .hover-lift:hover {
@@ -89,7 +126,9 @@
 .page-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 }
 
 /* Custom Typography Classes */
@@ -127,7 +166,9 @@
 /* Card Animations */
 .card {
   @apply bg-white rounded-lg shadow-lg overflow-hidden;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
 }
 
 .card:hover {
@@ -141,7 +182,7 @@
 }
 
 .animated-button::after {
-  content: '';
+  content: "";
   @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
 }
 
@@ -151,13 +192,23 @@
 
 /* Loading Animation */
 .loading-dots::after {
-  content: '...';
+  content: "...";
   animation: dots 1.5s steps(4, end) infinite;
 }
 
 @keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60% { content: '...'; }
-  80%, 100% { content: ''; }
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80%,
+  100% {
+    content: "";
+  }
 }

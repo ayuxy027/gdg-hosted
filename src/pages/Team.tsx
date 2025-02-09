@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
-import { Linkedin, Mail, Code, Megaphone, Palette, Calendar, PenTool, DollarSign, Users, Github } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { teams, Teams, TeamMember } from '../lib/team-data';
+import React, { useState } from "react";
+import {
+  Linkedin,
+  Mail,
+  Code,
+  Megaphone,
+  Palette,
+  Calendar,
+  PenTool,
+  DollarSign,
+  Users,
+  Github,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { teams, Teams, TeamMember } from "../lib/team-data";
 
 const Team: React.FC = () => {
-  const [activeTeam, setActiveTeam] = useState<keyof Teams>('Core');
+  const [activeTeam, setActiveTeam] = useState<keyof Teams>("Core");
 
   const teamIcons: { [key in keyof Teams]: JSX.Element } = {
-    'Core': <Users className="w-6 h-6" />,
-    'Tech': <Code className="w-6 h-6" />,
-    'Design': <Palette className="w-6 h-6" />,
-    'Finance': <DollarSign className="w-6 h-6" />,
-    'Public Relations': <Megaphone className="w-6 h-6" />,
-    'Event Management': <Calendar className="w-6 h-6" />,
-    'Content': <PenTool className="w-6 h-6" />,
+    Core: <Users className="w-6 h-6" />,
+    Tech: <Code className="w-6 h-6" />,
+    Design: <Palette className="w-6 h-6" />,
+    Finance: <DollarSign className="w-6 h-6" />,
+    "Public Relations": <Megaphone className="w-6 h-6" />,
+    "Event Management": <Calendar className="w-6 h-6" />,
+    Content: <PenTool className="w-6 h-6" />,
   };
 
   return (
@@ -53,8 +64,8 @@ const Team: React.FC = () => {
                 onClick={() => setActiveTeam(teamName)}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
                   activeTeam === teamName
-                    ? 'bg-black text-white shadow-lg scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 hover:scale-105'
+                    ? "bg-black text-white shadow-lg scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface AnimatedCardProps {
   children: React.ReactNode;
@@ -6,13 +6,13 @@ interface AnimatedCardProps {
   delay?: number;
 }
 
-export const AnimatedCard: React.FC<AnimatedCardProps> = ({ 
-  children, 
-  className = '', 
-  delay = 0 
+export const AnimatedCard: React.FC<AnimatedCardProps> = ({
+  children,
+  className = "",
+  delay = 0,
 }) => {
   return (
-    <div 
+    <div
       className={`card animate-fade-in ${className}`}
       style={{ animationDelay: `${delay}s` }}
     >

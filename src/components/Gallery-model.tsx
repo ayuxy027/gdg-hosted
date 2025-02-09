@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useSwipeable } from 'react-swipeable';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from "react";
+import { useSwipeable } from "react-swipeable";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface GalleryItem {
   id: string;
-  type: 'image' | 'video';
+  type: "image" | "video";
   src: string;
   alt: string;
 }
@@ -26,11 +26,15 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ section, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex < section.items.length - 1 ? prevIndex + 1 : 0));
+    setCurrentIndex((prevIndex) =>
+      prevIndex < section.items.length - 1 ? prevIndex + 1 : 0,
+    );
   }, [section.items.length]);
 
   const handlePrevious = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : section.items.length - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : section.items.length - 1,
+    );
   }, [section.items.length]);
 
   const swipeHandlers = useSwipeable({
@@ -41,13 +45,13 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ section, onClose }) => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') handlePrevious();
-      if (event.key === 'ArrowRight') handleNext();
-      if (event.key === 'Escape') onClose();
+      if (event.key === "ArrowLeft") handlePrevious();
+      if (event.key === "ArrowRight") handleNext();
+      if (event.key === "Escape") onClose();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleNext, handlePrevious, onClose]);
 
   if (!section.items || section.items.length === 0) {
@@ -55,7 +59,10 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ section, onClose }) => {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div className="p-4 bg-white rounded-lg">
           <p className="text-center">No items to display</p>
-          <button onClick={onClose} className="mt-4 text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="mt-4 text-gray-500 hover:text-gray-700"
+          >
             Close
           </button>
         </div>
@@ -72,8 +79,13 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ section, onClose }) => {
     >
       <div className="bg-white rounded-lg max-w-4xl w-full h-[80vh] flex flex-col overflow-hidden">
         <div className="flex items-center justify-between p-4">
-          <h2 id="gallery-title" className="text-2xl font-bold">{section.title}</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <h2 id="gallery-title" className="text-2xl font-bold">
+            {section.title}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
             <X className="w-6 h-6" />
           </button>
         </div>
@@ -108,7 +120,7 @@ interface GalleryDataProps {
 
 const GalleryData: React.FC<GalleryDataProps> = ({ item }) => (
   <div className="flex items-center justify-center w-full h-full overflow-hidden">
-    {item.type === 'image' ? (
+    {item.type === "image" ? (
       <img
         src={item.src}
         alt={item.alt}

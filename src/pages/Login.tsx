@@ -1,5 +1,5 @@
-import { Mail, Lock } from 'lucide-react';
-import { AuthButton } from '../components/AuthButton';
+import { Mail, Lock } from "lucide-react";
+import { AuthButton } from "../components/AuthButton";
 
 const Login = () => {
   return (
@@ -20,7 +20,9 @@ const Login = () => {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 text-gray-500 bg-white">Or continue with</span>
+              <span className="px-2 text-gray-500 bg-white">
+                Or continue with
+              </span>
             </div>
           </div>
 
@@ -82,7 +84,7 @@ const Login = () => {
 
           <div className="mt-6 text-center">
             <p className="text-gray-600">
-              Don't have an account?{' '}
+              Don't have an account?{" "}
               <a href="#" className="text-blue-600 hover:text-blue-800">
                 Sign up
               </a>

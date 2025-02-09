@@ -1,5 +1,5 @@
-import { LogOut } from 'lucide-react';
-import { useAuthStore } from '../store/authStore';
+import { LogOut } from "lucide-react";
+import { useAuthStore } from "../store/authStore";
 
 export const AuthButton = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
@@ -8,10 +8,10 @@ export const AuthButton = () => {
     // Initialize Google OAuth flow
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     const redirectUri = `${window.location.origin}/auth/callback`;
-    const scope = 'email profile';
-    
+    const scope = "email profile";
+
     const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
-    
+
     window.location.href = authUrl;
   };
 
@@ -19,7 +19,7 @@ export const AuthButton = () => {
     return (
       <div className="flex items-center space-x-4">
         <img
-          src={user.image || 'https://via.placeholder.com/32'}
+          src={user.image || "https://via.placeholder.com/32"}
           alt={user.name}
           className="w-8 h-8 rounded-full"
         />

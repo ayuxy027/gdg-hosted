@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Events from './pages/Events';
-import Gallery from './pages/Gallery';
-import Team from './pages/Team';
-import Login from './pages/Login';
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import Team from "./pages/Team";
+import Login from "./pages/Login";
 
 function App() {
   return (

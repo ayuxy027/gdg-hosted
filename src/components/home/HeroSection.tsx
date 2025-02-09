@@ -1,6 +1,6 @@
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import heroImage from "../../assets/webimg/homebg.webp"
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import heroImage from "../../assets/webimg/homebg.webp";
 
 export const HeroSection = () => (
   <section className="relative h-[600px] flex items-center">
@@ -10,7 +10,11 @@ export const HeroSection = () => (
       transition={{ duration: 1.5 }}
       className="absolute inset-0 z-0"
     >
-      <img src={heroImage} alt="Developer Conference" className="object-cover w-full h-full" />
+      <img
+        src={heroImage}
+        alt="Developer Conference"
+        className="object-cover w-full h-full"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
     </motion.div>
     <div className="relative z-10 px-8 mx-auto text-white max-w-7xl">
@@ -45,4 +49,4 @@ export const HeroSection = () => (
       </motion.div>
     </div>
   </section>
-)
+);
