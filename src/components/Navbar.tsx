@@ -71,7 +71,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <Link to="/" className="flex items-center space-x-2">
                 <img
-                  src="/src/assets/logogdg.png"
+                  src="/src/assets/webimg/logogdg.png"
                   alt="GDG Logo"
                   className="w-auto h-10"
                   loading="eager"
