@@ -13,6 +13,8 @@ const Navbar = () => {
       setScrolled(window.scrollY > 20);
     };
 
+    // Initial check
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -39,7 +41,7 @@ const Navbar = () => {
       return (
         <a href={to} target="_blank" rel="noopener noreferrer" className={linkClasses}>
           {children}
-          <span className="absolute inset-0 w-full h-full transition-all duration-300 bg-black rounded-full opacity-0 group-hover:opacity-10" />
+          <span className="absolute inset-0 w-full h-full transition-all duration-300 rounded-full opacity-0 bg-black/10 group-hover:opacity-100" />
         </a>
       );
     }
@@ -47,13 +49,13 @@ const Navbar = () => {
     return (
       <Link to={to} className={linkClasses}>
         {children}
-        <span className="absolute inset-0 w-full h-full transition-all duration-300 bg-black rounded-full opacity-0 group-hover:opacity-10" />
+        <span className="absolute inset-0 w-full h-full transition-all duration-300 rounded-full opacity-0 bg-black/10 group-hover:opacity-100" />
       </Link>
     );
   };
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-full px-4 pt-4">
+    <header className="fixed top-0 left-0 z-50 w-full px-4 pt-4">
       <nav className={`
         mx-auto max-w-7xl 
         rounded-3xl
@@ -61,7 +63,7 @@ const Navbar = () => {
         border border-black/10
         ${scrolled 
           ? 'bg-white/90 backdrop-blur-sm shadow-lg' 
-          : 'bg-white shadow-[2px_8px_15px_rgba(0,0,0,0.1)]'
+          : 'bg-white shadow-md'
         }
       `}>
         <div className="px-6 mx-auto">
@@ -72,6 +74,7 @@ const Navbar = () => {
                   src="/src/assets/logogdg.png"
                   alt="GDG Logo"
                   className="w-auto h-10"
+                  loading="eager"
                 />
               </Link>
             </div>
@@ -92,27 +95,24 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex items-center md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 transition-colors duration-200 rounded-full hover:bg-gray-100"
-                aria-label="Toggle menu"
-              >
-                {isOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 transition-colors duration-200 rounded-full hover:bg-gray-100 md:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-              isOpen
-                ? 'max-h-screen opacity-100 visible pb-4'
-                : 'max-h-0 opacity-0 invisible'
+            className={`md:hidden transition-all duration-300 ease-in-out ${
+              isOpen ? 'max-h-96 opacity-100 visible pb-4' : 'max-h-0 opacity-0 invisible'
             }`}
           >
             <div className="space-y-1 rounded-2xl">
@@ -141,7 +141,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 
