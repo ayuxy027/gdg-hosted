@@ -4,32 +4,32 @@ import logo from "../../assets/webimg/logo2.png";
 
 export const AboutSection = () => (
   <section>
-    <div className="py-24 bg-blue-600">
+    <div className="py-24 bg-blue-500">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="px-8 mx-auto text-center text-white max-w-7xl"
+        className="px-8 mx-auto max-w-7xl text-center text-white"
       >
         <h2 className="mb-6 text-4xl font-bold">
           About Google Developer Groups
         </h2>
-        <p className="max-w-3xl mx-auto text-xl leading-relaxed">
+        <p className="mx-auto max-w-3xl text-xl leading-relaxed">
           We are a community of developers passionate about Google technologies.
         </p>
       </motion.div>
     </div>
 
-    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="p-4 mb-8 sm:p-6 lg:p-8 sm:mb-12 lg:mb-16 bg-gray-50 rounded-2xl"
+        className="p-4 mb-8 bg-gray-50 rounded-2xl sm:p-6 lg:p-8 sm:mb-12 lg:mb-16"
       >
-        <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-12">
+        <div className="flex flex-col gap-6 items-center lg:flex-row lg:gap-12">
           <div className="w-full lg:w-auto">
             <img
               src={logo}
@@ -54,7 +54,7 @@ export const AboutSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="overflow-hidden shadow-2xl rounded-2xl"
+          className="overflow-hidden rounded-2xl shadow-2xl"
         >
           <img
             src={team}

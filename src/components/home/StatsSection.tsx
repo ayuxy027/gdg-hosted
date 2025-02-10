@@ -35,8 +35,8 @@ export const StatsSection = () => (
             viewport={{ once: true }}
             className="flex flex-col items-center"
           >
-            <stat.icon className="w-12 h-12 mb-4 text-blue-600" />
-            <h3 className="mb-1 text-3xl font-bold text-blue-600">
+            <stat.icon className="mb-4 w-12 h-12 text-blue-500" />
+            <h3 className="mb-1 text-3xl font-bold text-blue-500">
               {stat.value}
             </h3>
             <p className="text-sm text-gray-600">{stat.label}</p>

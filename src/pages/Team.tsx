@@ -30,7 +30,7 @@ const Team: React.FC = () => {
   return (
     <div className="pt-16 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-600 sm:py-16">
+      <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
             className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"

@@ -8,7 +8,7 @@ export const CTASection = () => (
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-8 mx-auto text-center max-w-7xl"
+      className="px-8 mx-auto max-w-7xl text-center"
     >
       <h2 className="mb-6 text-4xl font-bold text-gray-900">
         Ready to Join Our Community?
@@ -18,7 +18,7 @@ export const CTASection = () => (
       </p>
       <a
         href="https://gdg.community.dev/"
-        className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+        className="inline-flex gap-2 items-center px-8 py-4 text-lg font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-700"
       >
         Join Now
         <ArrowRight className="w-5 h-5" />

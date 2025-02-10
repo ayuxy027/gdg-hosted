@@ -25,7 +25,7 @@ export const AuthButton = () => {
         />
         <button
           onClick={logout}
-          className="flex items-center space-x-2 text-gray-600 hover:text-blue-600"
+          className="flex items-center space-x-2 text-gray-600 hover:text-blue-500"
         >
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
@@ -37,7 +37,7 @@ export const AuthButton = () => {
   return (
     <button
       onClick={handleGoogleLogin}
-      className="flex items-center px-4 py-2 space-x-2 text-gray-700 transition-colors bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+      className="flex items-center px-4 py-2 space-x-2 text-gray-700 bg-white rounded-md border border-gray-300 transition-colors hover:bg-gray-50"
     >
       <img
         src="https://www.google.com/favicon.ico"

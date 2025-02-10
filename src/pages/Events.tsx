@@ -66,9 +66,9 @@ const Events = () => {
   return (
     <div className="pt-16 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-600 sm:py-16">
+      <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+          <h1 className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
             GDSC Events
           </h1>
           <p className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl">
@@ -116,7 +116,7 @@ const Events = () => {
                     />
                   </div>
                   <div className="flex flex-col flex-grow p-6 sm:p-8">
-                    <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl line-clamp-2">
+                    <h3 className="mb-3 text-xl font-semibold text-gray-900 sm:text-2xl line-clamp-2">
                       {event.title}
                     </h3>
                     <p className="flex-grow mb-6 text-base text-gray-600 sm:text-lg line-clamp-3">
@@ -124,15 +124,15 @@ const Events = () => {
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-center text-sm text-gray-600 sm:text-base">
-                        <Calendar className="mr-3 w-5 h-5 text-blue-600 shrink-0" />
+                        <Calendar className="mr-3 w-5 h-5 text-blue-500 shrink-0" />
                         <span className="truncate">{event.date}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600 sm:text-base">
-                        <Clock className="mr-3 w-5 h-5 text-blue-600 shrink-0" />
+                        <Clock className="mr-3 w-5 h-5 text-blue-500 shrink-0" />
                         <span className="truncate">{event.time}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600 sm:text-base">
-                        <MapPin className="mr-3 w-5 h-5 text-blue-600 shrink-0" />
+                        <MapPin className="mr-3 w-5 h-5 text-blue-500 shrink-0" />
                         <span className="truncate">{event.location}</span>
                       </div>
                     </div>

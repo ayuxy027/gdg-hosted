@@ -5,12 +5,12 @@ const About = () => {
   return (
     <div className="pt-16 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-600 sm:py-16">
+      <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+          <h1 className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
             About Google Developer Groups
           </h1>
-          <p className="mx-auto max-w-3xl text-lg font-medium text-blue-100 sm:text-xl md:text-2xl">
+          <p className="mx-auto max-w-3xl font-medium text-blue-100 text-md sm:text-md md:text-xl">
             We are a community of developers passionate about Google technologies
             and dedicated to learning, sharing, and building together.
           </p>
@@ -23,17 +23,17 @@ const About = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                icon: <Target className="w-12 h-12 text-blue-600" />,
+                icon: <Target className="w-12 h-12 text-blue-500" />,
                 title: "Our Mission",
                 description: "To create an inclusive environment where developers can network, learn, and grow together."
               },
               {
-                icon: <Heart className="w-12 h-12 text-blue-600" />,
+                icon: <Heart className="w-12 h-12 text-blue-500" />,
                 title: "Our Values",
                 description: "Community, Innovation, Knowledge sharing, and Inclusivity are at the heart of everything we do."
               },
               {
-                icon: <Lightbulb className="w-12 h-12 text-blue-600" />,
+                icon: <Lightbulb className="w-12 h-12 text-blue-500" />,
                 title: "Our Vision",
                 description: "To empower developers to build innovative solutions that make a positive impact on society."
               }

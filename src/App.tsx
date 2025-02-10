@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Events from "./pages/Events";
 import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
-import Login from "./pages/Login";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

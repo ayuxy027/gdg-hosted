@@ -40,8 +40,8 @@ const Navbar = () => {
     const isActive = location === to;
     const baseClasses = "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full";
     const linkClasses = `${baseClasses} ${isActive
-        ? "bg-blue-600 text-white shadow-md"
-        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+        ? "bg-blue-500 text-white shadow-md"
+        : "text-gray-700 hover:text-blue-500 hover:bg-blue-50"
       }`;
 
     if (external) {
