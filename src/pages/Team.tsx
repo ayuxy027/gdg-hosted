@@ -18,22 +18,22 @@ const Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState<keyof Teams>("Core");
 
   const teamIcons: { [key in keyof Teams]: JSX.Element } = {
-    Core: <Users className="w-6 h-6" />,
-    Tech: <Code className="w-6 h-6" />,
-    Design: <Palette className="w-6 h-6" />,
-    Finance: <DollarSign className="w-6 h-6" />,
-    "Public Relations": <Megaphone className="w-6 h-6" />,
-    "Event Management": <Calendar className="w-6 h-6" />,
-    Content: <PenTool className="w-6 h-6" />,
+    Core: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Tech: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Design: <Palette className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Finance: <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Public Relations": <Megaphone className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Event Management": <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Content: <PenTool className="w-5 h-5 sm:w-6 sm:h-6" />,
   };
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-500 sm:py-16">
+      <section className="py-8 bg-blue-500 sm:py-12 md:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
-            className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"
+            className="mb-2 text-2xl font-bold tracking-tight sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -41,7 +41,7 @@ const Team: React.FC = () => {
             Our {activeTeam} Team
           </motion.h1>
           <motion.p
-            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
+            className="text-base font-medium text-blue-100 sm:text-lg md:text-xl lg:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -52,11 +52,11 @@ const Team: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-8 sm:py-12 md:py-16">
+      <section className="py-6 sm:py-8 md:py-12">
         <div className="container px-4 mx-auto max-w-7xl">
           {/* Team Navigation */}
           <motion.nav
-            className="flex flex-wrap gap-4 justify-center mb-12"
+            className="flex flex-wrap gap-2 justify-center mb-8 sm:gap-3 md:gap-4 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -65,10 +65,11 @@ const Team: React.FC = () => {
               <motion.button
                 key={teamName}
                 onClick={() => setActiveTeam(teamName)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTeam === teamName
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
+                  activeTeam === teamName
                     ? "bg-black text-white shadow-lg scale-105"
                     : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
-                  }`}
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -82,7 +83,7 @@ const Team: React.FC = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTeam}
-              className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -91,25 +92,25 @@ const Team: React.FC = () => {
               {teams[activeTeam].map((member: TeamMember, index: number) => (
                 <motion.div
                   key={member.id}
-                  className="overflow-hidden bg-white rounded-xl shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="overflow-hidden bg-white rounded-xl shadow-md transition-all duration-300 group hover:shadow-xl"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <div className="relative">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="object-cover w-full h-64 transition-transform duration-500 hover:scale-90"
+                      className="object-cover object-center w-full h-full transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute right-0 bottom-0 left-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h3 className="mb-1 text-2xl font-bold">{member.name}</h3>
-                      <p className="font-medium text-gray-200">{member.role}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 from-black/80 via-black/40 group-hover:opacity-100"></div>
+                    <div className="absolute right-0 bottom-0 left-0 p-4 text-white transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+                      <h3 className="mb-1 text-xl font-bold sm:text-2xl">{member.name}</h3>
+                      <p className="text-sm font-medium text-gray-200 sm:text-base">{member.role}</p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <p className="mb-4 text-gray-600">{member.bio}</p>
+                  <div className="p-4 sm:p-6">
+                    <p className="mb-4 text-sm text-gray-600 sm:text-base">{member.bio}</p>
                     <div className="flex space-x-4">
                       {member.github && (
                         <a
