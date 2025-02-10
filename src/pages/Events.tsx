@@ -1,11 +1,10 @@
-import React from "react";
 import { Calendar, MapPin, Clock } from "lucide-react";
 
 // Method 1: Import images directly
 // Uncomment these lines and adjust the paths to match your project structure
 import event1Image from "../assets/webimg/event1.avif";
 import event2Image from "../assets/webimg/event2.avif";
-import upcomingImage from "../assets/webimg/upcoming.JPG";
+import upcomingImage from "../assets/webimg/upcoming.jpg";
 
 const Events = () => {
   // Method 2: Use public folder paths
@@ -40,7 +39,7 @@ const Events = () => {
   return (
     <div className="pt-16">
       <section className="py-20 bg-blue-600">
-        <div className="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl text-center text-white sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold">Past Events</h1>
           <p className="text-xl">
             Exciting tech events, workshops, and meetups!
@@ -61,7 +60,9 @@ const Events = () => {
                   alt={event.title}
                   className="object-cover w-full h-48"
                   onError={(e) => {
+                    // @ts-ignore 
                     e.target.src = "/api/placeholder/800/400";
+                    // @ts-ignore 
                     e.target.alt = "Event placeholder image";
                   }}
                 />
@@ -70,19 +71,19 @@ const Events = () => {
                   <p className="mb-4 text-gray-600">{event.description}</p>
                   <div className="space-y-2">
                     <div className="flex items-center text-gray-600">
-                      <Calendar className="w-5 h-5 mr-2" />
+                      <Calendar className="mr-2 w-5 h-5" />
                       {event.date}
                     </div>
                     <div className="flex items-center text-gray-600">
-                      <Clock className="w-5 h-5 mr-2" />
+                      <Clock className="mr-2 w-5 h-5" />
                       {event.time}
                     </div>
                     <div className="flex items-center text-gray-600">
-                      <MapPin className="w-5 h-5 mr-2" />
+                      <MapPin className="mr-2 w-5 h-5" />
                       {event.location}
                     </div>
                   </div>
-                  <button className="w-full py-2 mt-6 text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-700">
+                  <button className="py-2 mt-6 w-full text-white bg-blue-600 rounded-md transition-colors hover:bg-blue-700">
                     Registration closed
                   </button>
                 </div>
@@ -93,7 +94,7 @@ const Events = () => {
       </section>
 
       <section className="py-20 bg-blue-600">
-        <div className="px-4 mx-auto text-center text-white max-w-7xl sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl text-center text-white sm:px-6 lg:px-8">
           <h1 className="mb-6 text-4xl font-bold">Upcoming Events</h1>
           <p className="text-xl">
             Join Us for Exciting Tech Events, Workshops, and Meetups!
@@ -102,7 +103,7 @@ const Events = () => {
       </section>
 
       <section className="py-20">
-        <div className="max-w-2xl p-10 mx-auto text-center bg-white rounded-lg shadow-lg">
+        <div className="p-10 mx-auto max-w-2xl text-center bg-white rounded-lg shadow-lg">
           <h2 className="mb-6 text-4xl font-bold text-gray-800">
             Upcoming Events 🎉
           </h2>
@@ -111,9 +112,11 @@ const Events = () => {
             // or Method 2: "/images/upcoming.JPG"
             src={upcomingImage}
             alt="Upcoming events"
-            className="w-full max-w-md mx-auto mb-6 rounded-lg shadow-md"
+            className="mx-auto mb-6 w-full max-w-md rounded-lg shadow-md"
             onError={(e) => {
+              // @ts-ignore 
               e.target.src = "/api/placeholder/400/300";
+              // @ts-ignore 
               e.target.alt = "Upcoming events placeholder";
             }}
           />

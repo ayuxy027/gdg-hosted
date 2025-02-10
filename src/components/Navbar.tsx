@@ -33,7 +33,7 @@ const Navbar = () => {
     { path: "/team", label: "Team" },
   ];
 
-  const NavLink = ({ to, children, external }) => {
+  const NavLink = ({ to, children, external }:any) => {
     const isActive = location === to;
     const baseClasses =
       "relative px-4 py-2 transition-all duration-300 rounded-full group";
@@ -48,7 +48,7 @@ const Navbar = () => {
           className={linkClasses}
         >
           {children}
-          <span className="absolute inset-0 w-full h-full transition-all duration-300 rounded-full opacity-0 bg-black/10 group-hover:opacity-100" />
+          <span className="absolute inset-0 w-full h-full rounded-full opacity-0 transition-all duration-300 bg-black/10 group-hover:opacity-100" />
         </a>
       );
     }
@@ -56,13 +56,13 @@ const Navbar = () => {
     return (
       <Link to={to} className={linkClasses}>
         {children}
-        <span className="absolute inset-0 w-full h-full transition-all duration-300 rounded-full opacity-0 bg-black/10 group-hover:opacity-100" />
+        <span className="absolute inset-0 w-full h-full rounded-full opacity-0 transition-all duration-300 bg-black/10 group-hover:opacity-100" />
       </Link>
     );
   };
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full px-4 pt-4">
+    <header className="fixed top-0 left-0 z-50 px-4 pt-4 w-full">
       <nav
         className={`
         mx-auto max-w-7xl 
@@ -71,13 +71,13 @@ const Navbar = () => {
         border border-black/10
         ${
           scrolled
-            ? "bg-white/90 backdrop-blur-sm shadow-lg"
+            ? "shadow-lg backdrop-blur-sm bg-white/90"
             : "bg-white shadow-md"
         }
       `}
       >
         <div className="px-6 mx-auto">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link to="/" className="flex items-center space-x-2">
                 <img
@@ -107,7 +107,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 transition-colors duration-200 rounded-full hover:bg-gray-100 md:hidden"
+              className="p-2 rounded-full transition-colors duration-200 hover:bg-gray-100 md:hidden"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -123,8 +123,8 @@ const Navbar = () => {
           <div
             className={`md:hidden transition-all duration-300 ease-in-out ${
               isOpen
-                ? "max-h-96 opacity-100 visible pb-4"
-                : "max-h-0 opacity-0 invisible"
+                ? "visible pb-4 max-h-96 opacity-100"
+                : "invisible max-h-0 opacity-0"
             }`}
           >
             <div className="space-y-1 rounded-2xl">
@@ -145,7 +145,7 @@ const Navbar = () => {
                 href="https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-and-management-pune-india/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-4 py-2 text-base transition-all duration-200 rounded-full hover:bg-gray-100"
+                className="block px-4 py-2 text-base rounded-full transition-all duration-200 hover:bg-gray-100"
               >
                 Join us
               </a>
