@@ -3,52 +3,51 @@ import team from "../assets/webimg/team.jpg";
 
 const About = () => {
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
+    <div className="pt-12 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-500 sm:py-16">
+      <section className="py-10 bg-blue-500 sm:py-12">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
-          <h1 className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+          <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             About Google Developer Groups
           </h1>
-          <p className="mx-auto max-w-3xl font-medium text-blue-100 text-md sm:text-md md:text-xl">
-            We are a community of developers passionate about Google technologies
-            and dedicated to learning, sharing, and building together.
+          <p className="mx-auto max-w-3xl text-sm font-medium text-blue-100 sm:text-base md:text-lg">
+            We are a community of developers passionate about Google technologies and dedicated to learning, sharing, and building together.
           </p>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-8 sm:py-12 md:py-16">
+      <section className="py-8 sm:py-10 md:py-12">
         <div className="container px-4 mx-auto max-w-7xl">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
-                icon: <Target className="w-12 h-12 text-blue-500" />,
+                icon: <Target className="w-10 h-10 text-blue-500" />,
                 title: "Our Mission",
                 description: "To create an inclusive environment where developers can network, learn, and grow together."
               },
               {
-                icon: <Heart className="w-12 h-12 text-blue-500" />,
+                icon: <Heart className="w-10 h-10 text-blue-500" />,
                 title: "Our Values",
                 description: "Community, Innovation, Knowledge sharing, and Inclusivity are at the heart of everything we do."
               },
               {
-                icon: <Lightbulb className="w-12 h-12 text-blue-500" />,
+                icon: <Lightbulb className="w-10 h-10 text-blue-500" />,
                 title: "Our Vision",
                 description: "To empower developers to build innovative solutions that make a positive impact on society."
               }
             ].map((item, index) => (
               <div
                 key={index}
-                className="p-8 text-center bg-white rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="p-6 text-center bg-white rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="inline-flex justify-center items-center mb-6">
+                <div className="inline-flex justify-center items-center mb-4">
                   {item.icon}
                 </div>
-                <h3 className="mb-4 text-xl font-bold text-gray-900 sm:text-2xl">
+                <h3 className="mb-2 text-lg font-semibold text-gray-800 sm:text-xl">
                   {item.title}
                 </h3>
-                <p className="text-base text-gray-600 sm:text-lg">
+                <p className="text-sm text-gray-600 sm:text-base">
                   {item.description}
                 </p>
               </div>
@@ -58,19 +57,18 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-8 bg-white sm:py-12 md:py-16">
+      <section className="py-8 bg-white sm:py-10 md:py-12">
         <div className="container px-4 mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
               Our Story
             </h2>
-            <p className="mx-auto max-w-3xl text-base text-gray-600 sm:text-lg">
-              Started in 2022, Google Developer Groups on Campus (GDGoC) are
-              community-led developer groups that create opportunities for developers
-              to meet and learn about Google technologies and development platforms.
+            <p className="mx-auto max-w-3xl text-sm leading-relaxed text-gray-600 sm:text-base md:text-lg">
+              Founded in 2022, Google Developer Groups on Campus (GDGoC) are community-led initiatives that bring developers together to learn, share, and build using Google technologies. 
+              We aim to foster a supportive community where developers can grow and create meaningful projects that make a difference in the world.
             </p>
           </div>
-          <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl">
+          <div className="relative mt-8 overflow-hidden rounded-lg shadow-md aspect-[16/9]">
             <img
               src={team}
               alt="Team Collaboration"
