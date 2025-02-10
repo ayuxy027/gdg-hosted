@@ -224,7 +224,7 @@ export const teams: Teams = {
       name: "Shreyash Jadhav",
       role: "Event Member",
       image: shreyanshImage,
-      bio: "Shreyansh ensures smooth coordination and successful events with his exceptional organizational skills.",
+      bio: "Shreyash ensures smooth coordination and successful events with his exceptional organizational skills.",
       linkedin: "https://www.linkedin.com/in/shreyash-jadhav-42541b256",
       mail: "Shreyashjadhav3999@gmail.com",
     },
