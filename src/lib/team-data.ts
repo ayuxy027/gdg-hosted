@@ -195,7 +195,7 @@ export const teams: Teams = {
       name: "Ritesh Devkate",
       role: "Public Relations Member",
       image: riteshImage,
-      bio: "Ritech, a PR member, excels in communication and confidence, captivating large audiences with ease.",
+      bio: "Ritesh, a PR member, excels in communication and confidence, captivating large audiences with ease.",
       linkedin: "https://www.linkedin.com/in/ritesh-devkate-8b28222a3",
       mail: "rdevkate1920@gmail.com",
     },
