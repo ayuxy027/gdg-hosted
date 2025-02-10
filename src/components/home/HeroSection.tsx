@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import heroImage from "../../assets/webimg/homebg.webp";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -73,8 +74,8 @@ export const HeroSection = () => {
               stiffness: 100
             }}
           >
-            <a
-              href="/events"
+            <Link
+              to="/events"
               className="inline-flex gap-2 items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg transition-all duration-300 sm:px-8 sm:py-4 sm:text-lg hover:bg-blue-700 hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 group"
             >
               Upcoming Events
@@ -88,7 +89,7 @@ export const HeroSection = () => {
               >
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
