@@ -28,12 +28,12 @@ const Team: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-16 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-8 bg-blue-500 sm:py-12 md:py-16">
+      <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
-            className="mb-2 text-2xl font-bold tracking-tight sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl"
+            className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -41,7 +41,7 @@ const Team: React.FC = () => {
             Our {activeTeam} Team
           </motion.h1>
           <motion.p
-            className="text-base font-medium text-blue-100 sm:text-lg md:text-xl lg:text-2xl"
+            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -65,11 +65,10 @@ const Team: React.FC = () => {
               <motion.button
                 key={teamName}
                 onClick={() => setActiveTeam(teamName)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
-                  activeTeam === teamName
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTeam === teamName
                     ? "bg-black text-white shadow-lg scale-105"
                     : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -17,12 +17,11 @@ export default function Gallery() {
       {/* Hero Section */}
       <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+          <h1 className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
             Our Gallery
           </h1>
           <p className="mx-auto max-w-3xl text-lg font-medium text-blue-100 sm:text-xl md:text-2xl">
-            A glimpse into our events and community moments, highlighting the energy
-            and collaboration around Google technologies.
+            A glimpse into our events and community moments.
           </p>
         </div>
       </section>
@@ -76,7 +75,7 @@ function GallerySection({
         <div className="absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 from-black/60 group-hover:opacity-100" />
       </div>
       <div className="p-6 sm:p-8">
-        <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl">
+        <h3 className="mb-3 text-xl font-semibold text-gray-900 sm:text-2xl">
           {section.title}
         </h3>
         <p className="text-base text-gray-600 sm:text-lg line-clamp-2">

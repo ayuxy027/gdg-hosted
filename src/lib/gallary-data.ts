@@ -44,7 +44,7 @@ export const gallerySections: GallerySection[] = [
     id: "genAi-2024",
     title: "Build With GenAI",
     description:
-      "@Pratik_Kale Sir discussed the impact of AI on various industries and its transformative potential, offering valuable insights into the future of technology.",
+      "Pratik Kale Sir discussed the impact of AI on various industries and its transformative potential, offering valuable insights into the future of technology.",
     coverImage: genAiMain,
     items: [
       { id: "1", type: "image", src: genAiMain, alt: "banner" },
