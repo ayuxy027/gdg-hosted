@@ -44,7 +44,7 @@ export const HeroSection = () => {
               type: "spring",
               stiffness: 100
             }}
-            className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+            className="text-3xl font-thin leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
             Google Developer Groups
           </motion.h1>
@@ -178,7 +178,7 @@ const ImpactCard = ({ title, description, delay }: ImpactCardProps) => {
           style={{ transform: "translateZ(40px)" }}
         >
           <motion.h3
-            className="mb-2 text-2xl font-bold text-white lg:text-3xl"
+            className="mb-2 text-2xl text-white font-semi lg:text-3xl"
             style={{ transform: "translateZ(15px)" }}
           >
             {title}
