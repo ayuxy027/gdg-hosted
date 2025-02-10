@@ -14,7 +14,6 @@ const Navbar = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    // Initial check
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,11 +32,17 @@ const Navbar = () => {
     { path: "/team", label: "Team" },
   ];
 
-  const NavLink = ({ to, children, external }:any) => {
+  const NavLink = ({ to, children, external = false }: {
+    to: string;
+    children: React.ReactNode;
+    external?: boolean;
+  }) => {
     const isActive = location === to;
-    const baseClasses =
-      "relative px-4 py-2 transition-all duration-300 rounded-full group";
-    const linkClasses = `${baseClasses} ${isActive ? "bg-black text-white" : "hover:text-black"}`;
+    const baseClasses = "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full";
+    const linkClasses = `${baseClasses} ${isActive
+        ? "bg-blue-600 text-white shadow-md"
+        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+      }`;
 
     if (external) {
       return (
@@ -48,7 +53,7 @@ const Navbar = () => {
           className={linkClasses}
         >
           {children}
-          <span className="absolute inset-0 w-full h-full rounded-full opacity-0 transition-all duration-300 bg-black/10 group-hover:opacity-100" />
+          <span className="absolute inset-0 w-full h-full bg-blue-100 rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100" />
         </a>
       );
     }
@@ -56,34 +61,34 @@ const Navbar = () => {
     return (
       <Link to={to} className={linkClasses}>
         {children}
-        <span className="absolute inset-0 w-full h-full rounded-full opacity-0 transition-all duration-300 bg-black/10 group-hover:opacity-100" />
+        <span className="absolute inset-0 w-full h-full bg-blue-100 rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100" />
       </Link>
     );
   };
 
   return (
-    <header className="fixed top-0 left-0 z-50 px-4 pt-4 w-full">
+    <header className="fixed top-0 right-0 left-0 z-50 px-4 pt-4">
       <nav
         className={`
-        mx-auto max-w-7xl 
-        rounded-3xl
-        transition-all duration-300
-        border border-black/10
-        ${
-          scrolled
-            ? "shadow-lg backdrop-blur-sm bg-white/90"
+          mx-auto max-w-7xl 
+          rounded-2xl
+          transition-all duration-300
+          border border-gray-200
+          ${scrolled
+            ? "shadow-lg backdrop-blur-md bg-white/90"
             : "bg-white shadow-md"
-        }
-      `}
+          }
+        `}
       >
-        <div className="px-6 mx-auto">
+        <div className="px-4 mx-auto sm:px-6">
           <div className="flex justify-between items-center h-16">
+            {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="flex items-center space-x-2">
                 <img
                   src={logogdg}
                   alt="GDG Logo"
-                  className="w-auto h-10"
+                  className="w-auto h-8 sm:h-10"
                   loading="eager"
                 />
               </Link>
@@ -107,7 +112,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full transition-colors duration-200 hover:bg-gray-100 md:hidden"
+              className="inline-flex justify-center items-center p-2 text-gray-700 rounded-lg transition-colors duration-200 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:hidden"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -121,22 +126,21 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden transition-all duration-300 ease-in-out ${
-              isOpen
-                ? "visible pb-4 max-h-96 opacity-100"
-                : "invisible max-h-0 opacity-0"
-            }`}
+            className={`md:hidden transition-all duration-300 ease-in-out ${isOpen
+                ? "pb-4 max-h-96 opacity-100"
+                : "max-h-0 opacity-0 pointer-events-none"
+              }`}
           >
-            <div className="space-y-1 rounded-2xl">
+            <div className="flex flex-col space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-4 py-2 text-base transition-all duration-200 rounded-full ${
-                    location === item.path
-                      ? "bg-black text-white"
-                      : "hover:bg-gray-100"
-                  }`}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 
+                    ${location === item.path
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -145,7 +149,7 @@ const Navbar = () => {
                 href="https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-and-management-pune-india/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-4 py-2 text-base rounded-full transition-all duration-200 hover:bg-gray-100"
+                className="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-600"
               >
                 Join us
               </a>

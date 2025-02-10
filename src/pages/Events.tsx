@@ -145,7 +145,7 @@ const Events = () => {
                         }`}
                       disabled={event.status === "past"}
                     >
-                      {event.status === "upcoming" ? "Register Now" : "Event Ended"}
+                      {event.status === "upcoming" ? "Opening Soon" : "Event Ended"}
                     </button>
                   </div>
                 </div>

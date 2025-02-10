@@ -28,11 +28,12 @@ const Team: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 bg-gradient-to-br from-gray-50 to-gray-100">
-      <section className="py-20 text-white bg-gradient-to-r from-blue-600 to-indigo-600">
-        <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+    <div className="pt-16 min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="py-12 bg-blue-600 sm:py-16">
+        <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
-            className="mb-6 text-4xl font-bold"
+            className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -40,7 +41,7 @@ const Team: React.FC = () => {
             Our {activeTeam} Team
           </motion.h1>
           <motion.p
-            className="text-xl"
+            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -50,10 +51,12 @@ const Team: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      {/* Team Section */}
+      <section className="py-8 sm:py-12 md:py-16">
+        <div className="container px-4 mx-auto max-w-7xl">
+          {/* Team Navigation */}
           <motion.nav
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap gap-4 justify-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -62,11 +65,10 @@ const Team: React.FC = () => {
               <motion.button
                 key={teamName}
                 onClick={() => setActiveTeam(teamName)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
-                  activeTeam === teamName
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTeam === teamName
                     ? "bg-black text-white shadow-lg scale-105"
                     : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -76,10 +78,11 @@ const Team: React.FC = () => {
             ))}
           </motion.nav>
 
+          {/* Team Grid */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTeam}
-              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -88,7 +91,7 @@ const Team: React.FC = () => {
               {teams[activeTeam].map((member: TeamMember, index: number) => (
                 <motion.div
                   key={member.id}
-                  className="overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-xl hover:scale-105"
+                  className="overflow-hidden bg-white rounded-xl shadow-xl transition-all duration-300 transform hover:scale-105"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -97,10 +100,10 @@ const Team: React.FC = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="object-cover w-full h-64 hover:scale-90 transition-transform duration-500"
+                      className="object-cover w-full h-64 transition-transform duration-500 hover:scale-90"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
-                    <div className="absolute text-white bottom-4 left-4">
+                    <div className="absolute right-0 bottom-0 left-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
                       <h3 className="mb-1 text-2xl font-bold">{member.name}</h3>
                       <p className="font-medium text-gray-200">{member.role}</p>
                     </div>
@@ -113,9 +116,9 @@ const Team: React.FC = () => {
                           href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                          className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Github className="h-5 w-5" />
+                          <Github className="w-5 h-5" />
                         </a>
                       )}
                       {member.linkedin && (
@@ -123,17 +126,17 @@ const Team: React.FC = () => {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                          className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Linkedin className="h-5 w-5" />
+                          <Linkedin className="w-5 h-5" />
                         </a>
                       )}
                       {member.mail && (
                         <a
                           href={`mailto:${member.mail}`}
-                          className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                          className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Mail className="h-5 w-5" />
+                          <Mail className="w-5 h-5" />
                         </a>
                       )}
                     </div>
