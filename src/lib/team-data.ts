@@ -6,7 +6,7 @@ import rajImage from "../assets/GDG MEMBERS/Raj_Gupta.jpg";
 import adityaImage from "../assets/GDG MEMBERS/Aditya_Chavan.jpg";
 import mayankImage from "../assets/GDG MEMBERS/Mayank_Saraswat.jpg";
 import riteshImage from "../assets/GDG MEMBERS/Ritesh_Devkate.jpg";
-import shravaniImage from "../assets/GDG MEMBERS/Shravani_Bhalerao.png";
+import shravaniImage from "../assets/GDG MEMBERS/Shravani_Bhalerao.jpg";
 import ayushImage from "../assets/GDG MEMBERS/Ayush_Yadav.jpg";
 import saishImage from "../assets/GDG MEMBERS/Saish_Mungase.jpg";
 import tanmayImage from "../assets/GDG MEMBERS/tanmay_pagare.jpg";
@@ -48,7 +48,7 @@ export const teams: Teams = {
       name: "Ayush Yadav",
       role: "Tech Lead",
       image: ayushImage,
-      bio: "Ayush is a full-stack developer and hackathon winner, excelling in AI and API integrations as GDG's Tech Lead.",
+      bio: "Ayush is a Generative AI Developer and 3x Hackathon winner, excelling in AI and API integrations as GDG's Tech Lead.",
       linkedin: "https://www.linkedin.com/in/ayushyadav27",
       github: "https://github.com/ayuxy027",
       mail: "ayush421301@gmail.com",
@@ -105,7 +105,7 @@ export const teams: Teams = {
       name: "Ayush Yadav",
       role: "Tech Lead",
       image: ayushImage,
-      bio: "Ayush is a full-stack developer and hackathon winner, excelling in AI and API integrations as GDG's Tech Lead.",
+      bio: "Ayush is a Generative AI Developer and 3x Hackathon winner, excelling in AI and API integrations as GDG's Tech Lead.",
       linkedin: "https://www.linkedin.com/in/ayushyadav27",
       github: "https://github.com/ayuxy027",
       mail: "ayush421301@gmail.com",
@@ -115,7 +115,7 @@ export const teams: Teams = {
       name: "Saish Mungase",
       role: "Tech Member",
       image: saishImage,
-      bio: "Saish is a full-stack developer specializing in AI applications that deliver impactful user experiences.",
+      bio: "Saish is a Full Stack Developer specializing in AI applications that deliver impactful user experiences.",
       linkedin: "http://www.linkedin.com/in/saish-mungase",
       github: "https://github.com/saishmungase",
       mail: "saishmungase@gmail.com",
@@ -125,7 +125,7 @@ export const teams: Teams = {
       name: "Sujeet Yadav",
       role: "Tech Member",
       image: sujeetImage,
-      bio: "Sujeet is a skilled developer, crafting clean and visually appealing website designs.",
+      bio: "Sujeet is a Skilled developer with expertise in Web and Cybersecurity domains delivering high performance applications.",
       linkedin: "https://www.linkedin.com/in/sujeet-yadav0070",
       github: "https://github.com/codesujeet",
       mail: "ysujeet0070@gmail.com",

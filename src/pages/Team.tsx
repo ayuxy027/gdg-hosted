@@ -1,15 +1,12 @@
 import React, { useState } from "react";
+import { FaLinkedin, FaGithub, FaUserTie, FaCode } from "react-icons/fa";
+import { PiMegaphoneDuotone } from "react-icons/pi";
+import { MdCalendarMonth } from "react-icons/md";
+import { FaPencil } from "react-icons/fa6";
+import { LuPaintBucket, LuBadgeDollarSign } from "react-icons/lu";
+
 import {
-  Linkedin,
   Mail,
-  Code,
-  Megaphone,
-  Palette,
-  Calendar,
-  PenTool,
-  DollarSign,
-  Users,
-  Github,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { teams, Teams, TeamMember } from "../lib/team-data";
@@ -18,13 +15,13 @@ const Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState<keyof Teams>("Core");
 
   const teamIcons: { [key in keyof Teams]: JSX.Element } = {
-    Core: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Tech: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Design: <Palette className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Finance: <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />,
-    "Public Relations": <Megaphone className="w-5 h-5 sm:w-6 sm:h-6" />,
-    "Event Management": <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Content: <PenTool className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Core: <FaUserTie className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Tech: <FaCode className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Design: <LuPaintBucket className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Finance: <LuBadgeDollarSign className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Public Relations": <PiMegaphoneDuotone className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Event Management": <MdCalendarMonth className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Content: <FaPencil className="w-5 h-5 sm:w-6 sm:h-6" />,
   };
 
   return (
@@ -66,8 +63,8 @@ const Team: React.FC = () => {
                 key={teamName}
                 onClick={() => setActiveTeam(teamName)}
                 className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTeam === teamName
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
+                  ? "bg-black text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -118,7 +115,7 @@ const Team: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Github className="w-5 h-5" />
+                          <FaGithub className="w-5 h-5" />
                         </a>
                       )}
                       {member.linkedin && (
@@ -128,7 +125,7 @@ const Team: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <FaLinkedin className="w-5 h-5" />
                         </a>
                       )}
                       {member.mail && (
