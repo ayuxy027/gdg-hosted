@@ -38,10 +38,10 @@ const Navbar = () => {
     external?: boolean;
   }) => {
     const isActive = location === to;
-    const baseClasses = "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full";
+    const baseClasses = "relative px-4 py-2 text-sm font-medium transition-all duration-500 rounded-full";
     const linkClasses = `${baseClasses} ${isActive
-        ? "bg-blue-500 text-white shadow-md"
-        : "text-gray-700 hover:text-blue-500 hover:bg-blue-50"
+      ? "bg-blue-500/80 text-white backdrop-blur-sm shadow-md shadow-blue-200/50"
+      : "text-gray-700 hover:text-blue-500 hover:bg-blue-50/50"
       }`;
 
     if (external) {
@@ -72,11 +72,11 @@ const Navbar = () => {
         className={`
           mx-auto max-w-7xl 
           rounded-2xl
-          transition-all duration-300
-          border border-gray-200
+          transition-all duration-500 ease-in-out
+          border border-gray-200/30
           ${scrolled
-            ? "shadow-lg backdrop-blur-md bg-white/90"
-            : "bg-white shadow-md"
+            ? "shadow-lg backdrop-blur-xl bg-white/70"
+            : "shadow-md backdrop-blur-sm bg-white/80"
           }
         `}
       >
@@ -126,9 +126,9 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden transition-all duration-300 ease-in-out ${isOpen
-                ? "pb-4 max-h-96 opacity-100"
-                : "max-h-0 opacity-0 pointer-events-none"
+            className={`md:hidden transition-all duration-500 ease-in-out ${isOpen
+              ? "pb-4 max-h-96 opacity-100"
+              : "max-h-0 opacity-0 pointer-events-none"
               }`}
           >
             <div className="flex flex-col space-y-1">
@@ -136,10 +136,10 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 
                     ${location === item.path
-                      ? "bg-blue-600 text-white"
-                      : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      ? "bg-blue-600/80 text-white backdrop-blur-sm"
+                      : "text-gray-700 hover:bg-blue-50/70 hover:text-blue-600"
                     }`}
                 >
                   {item.label}
@@ -149,7 +149,7 @@ const Navbar = () => {
                 href="https://gdg.community.dev/gdg-on-campus-g-h-raisoni-college-of-engineering-and-management-pune-india/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-600"
+                className="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-300 hover:bg-blue-50/70 hover:text-blue-600"
               >
                 Join us
               </a>
