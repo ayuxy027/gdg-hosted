@@ -4,12 +4,12 @@ import team from "../assets/webimg/team.jpg";
 
 const About = () => {
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-500 sm:py-16">
+      <section className="py-12 bg-gradient-to-r from-blue-600 to-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
-            className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"
+            className="mb-3 text-3xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-100 sm:mb-4 sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -17,7 +17,7 @@ const About = () => {
             About Google Developer Groups
           </motion.h1>
           <motion.p
-            className="mx-auto max-w-3xl text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
+            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
