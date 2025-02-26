@@ -39,6 +39,14 @@ export const CTASection = () => (
           <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 sm:w-5 sm:h-5" />
         </a>
       </motion.div>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-8 text-sm text-gray-500 font-light"
+      >
+        Made with ❤️ by GDG Tech Team
+      </motion.p>
     </motion.div>
   </section>
 );
