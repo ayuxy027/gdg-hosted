@@ -11,7 +11,7 @@ This repository contains the official website for Google Developer Group (GDG) o
 | Role | Name | GitHub |
 |------|------|--------|
 | **Tech Lead** | Ayush Yadav | [github.com/ayuxy027](https://github.com/ayuxy027) |
-| **Tech Member** | Saish Mungase | [github.com/saishmunagase](https://github.com/saishmunagase) |
+| **Tech Member** | Saish Mungase | [github.com/saishmungase](https://github.com/saishmungase) |
 | **Tech Member** | Sujeet Yadav | [github.com/codesujeet](https://github.com/codesujeet) |
 
 ---
