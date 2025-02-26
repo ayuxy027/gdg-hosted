@@ -13,24 +13,38 @@ export default function Gallery() {
     useState<GallerySectionType | null>(null);
 
   return (
-    <div className="pt-16 min-h-screen bg-gray-50">
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="py-12 bg-blue-500 sm:py-16">
+      <section className="py-12 bg-gradient-to-r from-blue-600 to-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+          <motion.h1
+            className="mb-3 text-3xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-100 sm:mb-4 sm:text-4xl md:text-5xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             Our Gallery
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg font-medium text-blue-100 sm:text-xl md:text-2xl">
-            A glimpse into our events and community moments, highlighting the energy
-            and collaboration around Google technologies.
-          </p>
+          </motion.h1>
+          <motion.p
+            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            A glimpse into our events and community moments.
+          </motion.p>
         </div>
       </section>
 
       {/* Gallery Grid */}
       <section className="py-8 sm:py-12 md:py-16">
         <div className="container px-4 mx-auto max-w-7xl">
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             {gallerySections.map((section) => (
               <GallerySection
                 key={section.id}
@@ -38,7 +52,7 @@ export default function Gallery() {
                 onClick={() => setSelectedSection(section)}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -76,7 +90,7 @@ function GallerySection({
         <div className="absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 from-black/60 group-hover:opacity-100" />
       </div>
       <div className="p-6 sm:p-8">
-        <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl">
+        <h3 className="mb-3 text-xl font-semibold text-gray-900 sm:text-2xl">
           {section.title}
         </h3>
         <p className="text-base text-gray-600 sm:text-lg line-clamp-2">

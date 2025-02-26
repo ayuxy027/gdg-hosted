@@ -1,15 +1,12 @@
 import React, { useState } from "react";
+import { FaLinkedin, FaGithub, FaUserTie, FaCode } from "react-icons/fa";
+import { PiMegaphoneDuotone } from "react-icons/pi";
+import { MdCalendarMonth } from "react-icons/md";
+import { FaPencil } from "react-icons/fa6";
+import { LuPaintBucket, LuBadgeDollarSign } from "react-icons/lu";
+
 import {
-  Linkedin,
   Mail,
-  Code,
-  Megaphone,
-  Palette,
-  Calendar,
-  PenTool,
-  DollarSign,
-  Users,
-  Github,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { teams, Teams, TeamMember } from "../lib/team-data";
@@ -18,22 +15,22 @@ const Team: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState<keyof Teams>("Core");
 
   const teamIcons: { [key in keyof Teams]: JSX.Element } = {
-    Core: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Tech: <Code className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Design: <Palette className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Finance: <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />,
-    "Public Relations": <Megaphone className="w-5 h-5 sm:w-6 sm:h-6" />,
-    "Event Management": <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />,
-    Content: <PenTool className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Core: <FaUserTie className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Tech: <FaCode className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Design: <LuPaintBucket className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Finance: <LuBadgeDollarSign className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Public Relations": <PiMegaphoneDuotone className="w-5 h-5 sm:w-6 sm:h-6" />,
+    "Event Management": <MdCalendarMonth className="w-5 h-5 sm:w-6 sm:h-6" />,
+    Content: <FaPencil className="w-5 h-5 sm:w-6 sm:h-6" />,
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-16 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-8 bg-blue-500 sm:py-12 md:py-16">
+      <section className="py-12 bg-blue-500 sm:py-16">
         <div className="container px-4 mx-auto max-w-7xl text-center text-white">
           <motion.h1
-            className="mb-2 text-2xl font-bold tracking-tight sm:mb-3 sm:text-3xl md:text-4xl lg:text-5xl"
+            className="mb-3 text-3xl font-semibold tracking-tight sm:mb-4 sm:text-4xl md:text-5xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -41,7 +38,7 @@ const Team: React.FC = () => {
             Our {activeTeam} Team
           </motion.h1>
           <motion.p
-            className="text-base font-medium text-blue-100 sm:text-lg md:text-xl lg:text-2xl"
+            className="text-lg font-medium text-blue-100 sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -65,11 +62,10 @@ const Team: React.FC = () => {
               <motion.button
                 key={teamName}
                 onClick={() => setActiveTeam(teamName)}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
-                  activeTeam === teamName
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
-                }`}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${activeTeam === teamName
+                  ? "bg-black text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-100 hover:scale-105"
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -119,7 +115,7 @@ const Team: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Github className="w-5 h-5" />
+                          <FaGithub className="w-5 h-5" />
                         </a>
                       )}
                       {member.linkedin && (
@@ -129,7 +125,7 @@ const Team: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-gray-600 transition-colors duration-200 hover:text-blue-600"
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <FaLinkedin className="w-5 h-5" />
                         </a>
                       )}
                       {member.mail && (

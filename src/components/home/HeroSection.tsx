@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import heroImage from "../../assets/webimg/homebg.webp";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -72,13 +73,37 @@ export const HeroSection = () => {
               type: "spring",
               stiffness: 100
             }}
+            className="relative"
           >
-            <a
-              href="/events"
-              className="inline-flex gap-2 items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg transition-all duration-300 sm:px-8 sm:py-4 sm:text-lg hover:bg-blue-700 hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 group"
+            <Link
+              to="/events"
+              className="group relative inline-flex items-center overflow-hidden
+                px-6 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-4
+                text-sm sm:text-base md:text-lg font-medium
+                text-white rounded-full
+                transition-all duration-300
+                bg-gradient-to-r from-blue-600 to-blue-500
+                hover:from-blue-500 hover:to-blue-600
+                shadow-[0_0_15px_rgba(59,130,246,0.5)]
+                hover:shadow-[0_0_20px_rgba(59,130,246,0.7)]
+                border border-white/20
+                backdrop-filter backdrop-blur-sm
+                before:absolute before:content-[''] before:w-12
+                before:h-[300%] before:-top-[100%] before:-left-24
+                before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent
+                before:rotate-[35deg] before:transition-all before:duration-700 before:ease-in-out
+                hover:before:translate-x-[350%]
+                after:absolute after:content-[''] after:z-20 after:w-12
+                after:h-[300%] after:-top-[100%] after:-left-24
+                after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent
+                after:rotate-[35deg] after:transition-all after:duration-700 after:delay-75 after:ease-in-out
+                hover:after:translate-x-[350%]"
             >
-              Upcoming Events
+              {/* Button Content */}
+              <span className="relative z-30">Upcoming Events</span>
+
               <motion.div
+                className="relative z-30 ml-2 sm:ml-3"
                 animate={{ x: [0, 5, 0] }}
                 transition={{
                   duration: 1.5,
@@ -86,9 +111,26 @@ export const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               >
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 sm:w-5 sm:h-5 group-hover:translate-x-1" />
               </motion.div>
-            </a>
+
+              {/* Hover Glow */}
+              <div className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-white/10" />
+            </Link>
+
+            {/* Background Glow Animation */}
+            <motion.div
+              className="absolute inset-0 rounded-full blur-xl -z-10 bg-blue-500/20"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
           </motion.div>
         </div>
       </div>
